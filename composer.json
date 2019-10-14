@@ -24,7 +24,7 @@
                 "Ssl\\Isms\\SmsServiceProvider"
             ]
         }
-    }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

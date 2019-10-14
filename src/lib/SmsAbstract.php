@@ -1,7 +1,7 @@
 <?php
 
 
-namespace lib;
+namespace Ssl\Isms;
 
 
 class SmsAbstract implements Isms

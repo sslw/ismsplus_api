@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ssl\isms\sms;
+namespace Ssl\Isms;
 use Illuminate\Support\ServiceProvider;
 
 
