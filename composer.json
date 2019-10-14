@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Ssl\\Isms\\": "src/lib/"
+            "Ssl\\Isms\\": "src/"
         }
     },
     "extra": {
