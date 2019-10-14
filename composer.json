@@ -1,5 +1,5 @@
 {
-    "name": "ssl/smsapi",
+    "name": "ssl/isms",
     "description": "SMS sending API.",
     "type": "library",
     "require": {
