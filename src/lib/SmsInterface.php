@@ -4,7 +4,7 @@
 namespace Ssl\Isms;
 
 
-interface Isms
+interface SmsInterface
 {
     public function makeParams($msisdn, $messageBody, $csmsId);
     public function callApi();

@@ -35,7 +35,7 @@ class SMS extends SmsAbstract
     public function bulk($msisdns, $messageBody, $batchId)
     {
         $this->makeBulkParams($msisdns, $messageBody, $batchId);
-        $this->setUrl("/send-sms");
+        $this->setUrl("/send-sms/bulk");
         return $this->callApi();
     }
 
@@ -46,7 +46,7 @@ class SMS extends SmsAbstract
     public function dynamic(array $messageData)
     {
         $this->makeDynamicParams($messageData);
-        $this->setUrl("/send-sms");
+        $this->setUrl("/send-sms/dynamic");
         return $this->callApi();
     }
 

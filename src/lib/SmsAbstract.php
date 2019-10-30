@@ -4,7 +4,7 @@
 namespace Ssl\Isms;
 
 
-class SmsAbstract implements Isms
+class SmsAbstract implements SmsInterface
 {
     private $params = '';
     private $url = '';
@@ -147,7 +147,7 @@ class SmsAbstract implements Isms
      */
     public function setUrl($url)
     {
-        $this->url = rtrim(config('isms.url'), '/') . "/" . rtrim($url, "/");
+        $this->url = rtrim(config('isms.api_domain'), '/') . "/api/v3/" . trim($url, "/");
     }
 
     /**
