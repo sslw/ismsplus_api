@@ -10,20 +10,6 @@ composer require sslw/ismsplus
 
 Wait for few minutes. Composer will automatically install this package for your project.
 
-### For Laravel
-
-Open `config/app` and add this line in `providers` section
-
-```php
-Ssl\Isms\SmsServiceProvider::class,
-```
-
-For Facade support you have add this line in `aliases` section.
-
-```php
-'SMS'   =>  Ssl\Isms\Facades\SMS::class,
-```
-
 Then run this command
 
 ```shell
@@ -33,6 +19,7 @@ php artisan vendor:publish --provider="Ssl\Isms\\SmsServiceProvider"
 ## Configuration
 
 Open app/isms.php
+
 This package is required three configurations.
 
 1. domain = Which is provided by SSL Wirless.
@@ -47,7 +34,7 @@ This package is required three configurations.
 use Ssl\Isms\SMS;
 
 $sms = new SMS();
-$response = $sms->single('01xxxxxxxxx','Your Message body', 'Your unique sms id');
+$response = $sms->single('01xxxxxxxxx','Your Message body', 'Your unique sms id')->send();
 
 $result = json_decode($response);
 
@@ -65,7 +52,7 @@ if($result->status_code == 200) {
 use Ssl\Isms\SMS;
 
 $sms = new SMS();
-$response = $sms->bulk('01xxxxxxxxx,01xxxxxxxxx','Your Message body', 'Your unique sms id');
+$response = $sms->bulk('01xxxxxxxxx,01xxxxxxxxx','Your Message body', 'Your unique sms id')->send();
 
 $result = json_decode($response);
 
@@ -96,7 +83,7 @@ $messageData = [
     ]
 ];
 
-$response = $sms->dynamic($messageData);
+$response = $sms->dynamic($messageData)->send();
 
 $result = json_decode($response);
 

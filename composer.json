@@ -21,10 +21,7 @@
     "laravel": {
       "providers": [
         "Ssl\\Isms\\SmsServiceProvider"
-      ],
-      "aliases": {
-        "SMS": "Ssl\\Isms\\Facades\\SMS"
-      }
+      ]
     }
   },
   "minimum-stability": "dev",
