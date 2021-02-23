@@ -1,5 +1,5 @@
 {
-  "name": "sslwireless/ismsplus",
+  "name": "sslw/ismsplus",
   "description": "SMS sending API.",
   "type": "library",
   "require": {
