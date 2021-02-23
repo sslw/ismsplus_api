@@ -17,37 +17,46 @@ class SMS extends SmsAbstract
      * @param $msisdn
      * @param $messageBody
      * @param $csmsId
-     * @return string
+     * @return self
      */
     public function single($msisdn, $messageBody, $csmsId)
     {
         $this->makeParams($msisdn, $messageBody, $csmsId);
         $this->setUrl("/send-sms");
-        return $this->callApi();
+        return $this;
     }
 
     /**
      * @param $msisdns
      * @param $messageBody
      * @param $batchId
-     * @return string
+     * @return self
      */
     public function bulk($msisdns, $messageBody, $batchId)
     {
         $this->makeBulkParams($msisdns, $messageBody, $batchId);
         $this->setUrl("/send-sms/bulk");
-        return $this->callApi();
+        return $this;
+    }
+
+    /**
+     * @param array $messageData
+     * @return self
+     */
+    public function dynamic(array $messageData)
+    {
+        $this->makeDynamicParams($messageData);
+        $this->setUrl("/send-sms/dynamic");
+        return $this;
     }
 
     /**
      * @param array $messageData
      * @return string
      */
-    public function dynamic(array $messageData)
+
+    public function send()
     {
-        $this->makeDynamicParams($messageData);
-        $this->setUrl("/send-sms/dynamic");
         return $this->callApi();
     }
-
 }
