@@ -21,7 +21,7 @@ Ssl\Isms\SmsServiceProvider::class,
 For Facade support you have add this line in `aliases` section.
 
 ```php
-'Sms'   =>  Ssl\Isms\Facades\Sms::class,
+'SMS'   =>  Ssl\Isms\Facades\SMS::class,
 ```
 
 Then run this command
@@ -32,6 +32,7 @@ php artisan vendor:publish --provider="Ssl\Isms\\SmsServiceProvider"
 
 ## Configuration
 
+Open app/isms.php
 This package is required three configurations.
 
 1. domain = Which is provided by SSL Wirless.
@@ -45,7 +46,7 @@ This package is required three configurations.
 ```php
 use Ssl\Isms\SMS;
 
-$sms = new Sms();
+$sms = new SMS();
 $response = $sms->single('01xxxxxxxxx','Your Message body', 'Your unique sms id');
 
 $result = json_decode($response);
@@ -63,7 +64,7 @@ if($result->status_code == 200) {
 ```php
 use Ssl\Isms\SMS;
 
-$sms = new Sms();
+$sms = new SMS();
 $response = $sms->bulk('01xxxxxxxxx,01xxxxxxxxx','Your Message body', 'Your unique sms id');
 
 $result = json_decode($response);
@@ -81,7 +82,7 @@ if($result->status_code == 200) {
 ```php
 use Ssl\Isms\SMS;
 
-$sms = new Sms();
+$sms = new SMS();
 $messageData = [
     [
         "msisdn" => "8801XXXXXXXXX",
