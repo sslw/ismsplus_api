@@ -40,13 +40,62 @@ This package is required three configurations.
 
 ## Usages
 
-php-sslwireless-sms is take an array as config file. Lets services
+# 1. For sending Single SMS
 
 ```php
 use Ssl\Isms\SMS;
 
 $sms = new Sms();
 $response = $sms->single('01xxxxxxxxx','Your Message body', 'Your unique sms id');
+
+$result = json_decode($response);
+
+if($result->status_code == 200) {
+    echo "Success";
+} else {
+    echo $result->error_message;
+}
+
+```
+
+# 2. For sending Bulk SMS
+
+```php
+use Ssl\Isms\SMS;
+
+$sms = new Sms();
+$response = $sms->bulk('01xxxxxxxxx,01xxxxxxxxx','Your Message body', 'Your unique sms id');
+
+$result = json_decode($response);
+
+if($result->status_code == 200) {
+    echo "Success";
+} else {
+    echo $result->error_message;
+}
+
+```
+
+# 3. For sending Dynamic SMS
+
+```php
+use Ssl\Isms\SMS;
+
+$sms = new Sms();
+$messageData = [
+    [
+        "msisdn" => "8801XXXXXXXXX",
+        "text" => "SMS 1",
+        "csms_id" => "Your SMS ID"
+    ],
+    [
+        "msisdn" => "8801XXXXXXXXX",
+        "text" => "SMS 2",
+        "csms_id" => "Your SMS ID"
+    ]
+];
+
+$response = $sms->dynamic($messageData);
 
 $result = json_decode($response);
 
