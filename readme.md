@@ -13,12 +13,12 @@ Wait for few minutes. Composer will automatically install this package for your 
 Then run this command
 
 ```shell
-php artisan vendor:publish --provider="Ssl\Isms\\SmsServiceProvider"
+php artisan vendor:publish --provider="Ssl\Isms\SmsServiceProvider"
 ```
 
 ## Configuration
 
-Open app/isms.php
+Open config/isms.php
 
 This package is required three configurations.
 
